@@ -1,0 +1,2 @@
+file -C -m school.mgc
+file -i -m school.mgc *
