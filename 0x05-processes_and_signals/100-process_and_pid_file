@@ -7,26 +7,19 @@
 #   Deletes the file /var/run/holbertonscript.pid and terminates upon
 #+  receiving a SIGQUIT or SIGTERM.
 
-PRID=$$
-echo "$PRID" > /var/run/holbertonscript.pid
+echo "$$" > /var/run/holbertonscript.pid
 
-function Do_not_love_at_Signal()
-{
-    echo "Y U no love me?!"
+termfunc() {
+    rm /var/run/holbertonscript.pid
+    exit
 }
 
-function Quit_at_Signal()
-{
-    echo "I hate the kill command"
-    rm -f /var/run/holbertonscript.pid
-    kill -9 $PRID
-}
 
-trap Do_not_love_at_Signal SIGINT
-trap Quit_at_Signal SIGQUIT SIGTERM
-
-while :
+while true
 do
     echo "To infinity and beyond"
     sleep 2
+    trap 'echo "Y U no love me?!"' SIGINT
+    trap 'echo "I hate the kill command" && termfunc' SIGTERM
+    trap 'termfunc' SIGQUIT
 done
