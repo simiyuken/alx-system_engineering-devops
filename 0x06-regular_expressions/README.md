@@ -34,11 +34,11 @@ Read about regexp:
 
 - [Read about regexp](http://www.regular-expressions.info/)
 
-- [Read about regexp](http://www.w3schools.com/jsref/jsref_obj_regexp.asp Play with regexp (or compose them):)
+- [Read about regexp](http://www.w3schools.com/jsref/jsref_obj_regexp.asp) [Play with regexp (or compose them):]
 
-- [Read about regexp](Ruby: http://rubular.com/)
+- [Ruby:](http://rubular.com/)
 
-- [Read about regexp](PHP/Javascript/Python: https://regex101.com/)
+- [PHP/Javascript/Python](https://regex101.com/)
 
 
 
