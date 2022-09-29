@@ -36,7 +36,7 @@ defaults
 
 listen www
         bind *:80
-        bind *:443 ssl crt /etc/ssl/private/simiyuken.tech.pem
+        bind *:443 ssl crt /etc/ssl/private/www.simiyuken.tech.pem
         http-request redirect scheme https unless { ssl_fc }
         balance roundrobin
         server 13615-web-01 3.236.246.89 check
