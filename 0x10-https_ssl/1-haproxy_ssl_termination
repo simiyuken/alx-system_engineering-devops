@@ -44,7 +44,7 @@ listen www
         balance roundrobin
         option httpclose
         option forwardfor
-        server 13615-web-01 3.236.246.89 check
-        server 13615-web-02 34.239.173.77 check
+        server 13615-web-01 3.236.246.89:80 check
+        server 13615-web-02 34.239.173.77:80 check
 
 
