@@ -34,17 +34,10 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-
 listen www
-        listen hbnb
-        bind 0.0.0.0:443
-        mode http
-        stats enable
-        stats uri /haproxy?stats
+        bind *:80
+        bind *:443 ssl crt /etc/haproxy/certs/www.simiyuken.tech.pem
+        http-request redirect scheme https unless { ssl_fc }
         balance roundrobin
-        option httpclose
-        option forwardfor
         server 13615-web-01 3.236.246.89:80 check
         server 13615-web-02 34.239.173.77:80 check
-
-
