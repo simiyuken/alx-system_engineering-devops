@@ -17,10 +17,11 @@ Check if there are nginx processes running.
 Showed the program is active and running.
 
 Tried to restart Nginx
+
 `sudo service nginx restart`
+
 failed
 
-![This is an image](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/294/pQ9YzVY.gif)
 
 Check log files
 `cat /var/log/nginx/error.log | tail -10`
@@ -36,6 +37,9 @@ The problem was with the Nginx configuration in the file `/etc/nginx/sites-enabl
 10:31: Nginx was configured to listen on port 80 and restarted successfully.
 
 # Root Cause.
+
+![This is an image](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/294/pQ9YzVY.gif)
+
 Nginx was listening to port 8080 instead of port 80 used to access the web server endpoint. The Nginx server config file `/etc/nginx/sites-enabled/default` was set to listen to port `8080` instead of port `80`. The issue was fixed by changing the default port 8080 to 80 using a shell command:
 `sudo sed -i 's/8080 default_server/80 default_server/g' /etc/nginx/sites-enabled/default`
 Nginx was restarted by the command:
