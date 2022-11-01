@@ -41,8 +41,11 @@ The problem was with the Nginx configuration in the file `/etc/nginx/sites-enabl
 ![This is an image](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/294/pQ9YzVY.gif)
 
 Nginx was listening to port 8080 instead of port 80 used to access the web server endpoint. The Nginx server config file `/etc/nginx/sites-enabled/default` was set to listen to port `8080` instead of port `80`. The issue was fixed by changing the default port 8080 to 80 using a shell command:
+
 `sudo sed -i 's/8080 default_server/80 default_server/g' /etc/nginx/sites-enabled/default`
+
 Nginx was restarted by the command:
+
 `sudo service nginx restart`
 
 # Corrective and Preventative measures.
