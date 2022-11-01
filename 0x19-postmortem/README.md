@@ -7,13 +7,21 @@ Access to the server endpoint using curl 0:80 was returning `curl: (7) Failed to
 # Duration (East Africa Time).
 
 Monday, 27 October 2022
+
 10:00 AM: Logged into the server and the Nginx server was not responding to requests on socket 0:80
+
 10:05: Begun web debugging to locate issues. This involved the steps;
+
 Check if Nginx is running
+
 `sudo service nginx status`
+
 Showed Nginx is not running
+
 Check if there are nginx processes running.
+
 `pgrep -lf nginx`
+
 Showed the program is active and running.
 
 Tried to restart Nginx
@@ -24,15 +32,24 @@ failed
 
 
 Check log files
+
 `cat /var/log/nginx/error.log | tail -10`
 bind() to [::]:8080 failed (98: Address already in use)
+
 Check processes using ports
+
 `netstat -lpn`
 Nginx was listening on port 8080
+
 Checked Nginx configuration files;
+
 `cat /etc/nginx/sites-available/default`
+
 `cat /etc/nginx/sites-enabled/default`
-The problem was with the Nginx configuration in the file `/etc/nginx/sites-enabled/default` . Nginx was listening on `8080` instead of `80`.
+
+The problem was with the Nginx configuration in the file `/etc/nginx/sites-enabled/default`.
+
+Nginx was listening on `8080` instead of `80`.
 
 10:31: Nginx was configured to listen on port 80 and restarted successfully.
 
