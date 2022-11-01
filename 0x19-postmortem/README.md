@@ -20,7 +20,7 @@ Tried to restart Nginx
 `sudo service nginx restart`
 failed
 
-![This is an image](https://imgur.com/aGJxKi3)
+![This is an image](https://data.embeddedcomputing.com/uploads/resize/1256/756/external/data.embeddedcomputing.com/uploads/articles/wp/345429795/ECD5688-figures-4)
 
 Check log files
 `cat /var/log/nginx/error.log | tail -10`
